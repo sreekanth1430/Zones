@@ -1,0 +1,53 @@
+﻿{
+  "MicroServiceName": "CRMIL",
+  "SwaggerDescription": "Zone CRMIL",
+  "ServiceDependencies": [],
+  "PhysicalDependencies": [
+    {
+      "path": "AzureTableStorage",
+      "type": "",
+      "summary": "Table storage is used to save the metadata",
+      "operationId": "AzureTableStorageGet"
+    }
+  ],
+  "AzureTableStorage": {
+    "AZURE_ENDPOINTS": "DefaultEndpointsProtocol=https;AccountName=youraccountname;AccountKey=eW91ciBBY2NvdW50IEtleQ==;EndpointSuffix=core.windows.net",
+    "AZURE_BLOB_CONTAINER": "yourblob"
+  },
+  //Uncomment to enable Authentication
+  //"Authentication": {
+  //  "AuthType": "AzureAd",
+  //  "AzureAd": {
+  //    "Instance": "https://login.microsoftonline.com",
+  //    "Domain": "o365sonata.onmicrosoft.com",
+  //    "TenantId": "7571a489-bd29-4f38-b9a6-7c880f8cddf0",
+  //    "ClientId": "cbe6c052-cf68-42bb-8e00-81217c112294"
+  //  }
+  //},
+  "ConnectionString": {
+    "OrderDB": "Data Source=BG4WS1542;Initial Catalog=master;Integrated Security=True"
+  },
+  "LoggerDependencies": {
+    "CorrelationId": "x-lp-correlationId",
+    "Store": "file",
+    "OutputTemplate": "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3} {Properties}] {Message:lj}{NewLine}{Exception}",
+    "Key": "C:\\Logs\\Order.txt",
+    "ProviderType": "Serilog"
+  },
+  "AzureCosmosStorage": {
+    "PrimaryKey": "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==",
+    "EndpointUrl": "https://localhost:8081/",
+    "DatabaseName": "Orders",
+    "MaxRetryAttemptsOnThrottledRequests": 3,
+    "MaxRetryWaitTimeInSeconds": 15
+  }
+  //For App Insights
+  //"LoggerDependencies": {
+  //  "CorrelationId": "x-lp-correlationId",
+  //  "Store": "AppInsights",
+  //  "OutputTemplate": "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3} {Properties}] {Message:lj}{NewLine}{Exception}",
+  //  "Key": "<<Insert Key>>",
+  //  "ProviderType": "Serilog"
+  //}
+
+} 
